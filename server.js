@@ -40,7 +40,7 @@ io.on('connection', function(socket){
     socket.join(info.room);
     socket.username = info.username;
     socket.room = info.room;
-    client.publish("join message",JSON.stringify({room: info.room ,message: socket.username + " joined."});
+    client.publish("join message",JSON.stringify({room: info.room ,message: socket.username + " joined."}));
   });
 
   socket.on('chat message', function(msgObj){
