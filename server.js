@@ -51,13 +51,13 @@ io.on('connection', function(socket){
 clientForChat.on("message", function (channel, messageString) {
   var messageObject = JSON.parse(messageString);
   console.log("chat event catched : " + messageObject.room + " : "+messageObject.message);
-  io.to(messageObject.room).emit('chat message', messageObject.message);
+  io.to(messageObject.room).emit('chat message', messageObject);
 });
 
 clientForJoin.on("message", function (channel, messageString) {
   var messageObject = JSON.parse(messageString);
   console.log("join event catched : " + messageObject.room + " : "+messageObject.message);
-  io.to(messageObject.room).emit('chat message', messageObject.message);
+  io.to(messageObject.room).emit('chat message', messageObject);
 });
 
 clientForChat.subscribe("chat message");
